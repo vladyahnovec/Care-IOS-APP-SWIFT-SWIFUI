@@ -15,5 +15,7 @@ class ViewModel: ObservableObject {
     @Published var voice = "Женский"
     
     @Published var toView = ""
+    
+    @Published var notes = notesArray
 
 }
