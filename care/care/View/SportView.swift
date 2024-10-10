@@ -17,6 +17,13 @@ struct SportView : View {
                     .foregroundStyle(Color.purpleColor)
                     .font(.custom("Poppins-Black", size: 25))
                 Spacer()
+                Button(action: {
+                    vm.toView = "homeView"
+                }) {
+                    Image(systemName: "arrow.left")
+                        .font(.system(size: 25))
+                        .foregroundStyle(Color.purpleColor)
+                }
             }
             .frame(height: 70)
             

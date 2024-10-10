@@ -12,7 +12,7 @@ struct RegistrationButtonView: View {
     var body: some View {
         VStack {
             Button(action: {
-                vm.toView = ""
+                vm.toView = "homeView"
             }) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)

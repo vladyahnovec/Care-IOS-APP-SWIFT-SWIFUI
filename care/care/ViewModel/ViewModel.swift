@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     
     @Published var voice = "Женский"
     
-    @Published var toView = "notesView"
+    @Published var toView = "registerView"
     
     @Published var notes = notesArray
     var copyNotes = notesArray
@@ -22,19 +22,32 @@ class ViewModel: ObservableObject {
     @Published var sports = sportsArray
     var copySports = sportsArray
     
+    @Published var books = booksArray
+    var copyBooks = booksArray
+    
     @Published var findText = "" {
         didSet {
-            filterNotesByFindText()
+            filterByFindText(books: nil, notes: self.notes)
         }
     }
     
     
-    private func filterNotesByFindText() {
+    private func filterByFindText(books: [Book]?, notes: [Notes]?) {
         if findText != "" {
-            self.notes = self.notes.filter {$0.text.lowercased().contains(findText.lowercased())}
+            if toView == "notesView" {
+                self.notes = self.copyNotes.filter {$0.text.lowercased().contains(findText.lowercased())}
+            }
+            else if toView == "booksView" {
+                self.books = self.copyBooks.filter {$0.name.lowercased().contains(findText.lowercased()) || $0.author.lowercased().contains(findText.lowercased())}
+            }
         }
         else {
-            self.notes = copyNotes
+            if toView == "notesView" {
+                self.notes = copyNotes
+            }
+            else if toView == "booksView" {
+                self.books = copyBooks
+            }
         }
     }
     

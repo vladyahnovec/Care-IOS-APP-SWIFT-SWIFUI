@@ -86,7 +86,7 @@ struct NotesView : View {
                             .padding(20)
                         }
                         .frame(width: 350, height: 100)
-                        .background(note.done ? Color.purpleColor.opacity(0.7) : Color.purpleL)
+                        .background(note.done ? Color.purpleColor.opacity(0.6) : Color.purpleL)
                         .cornerRadius(10)
                     }
                 }
