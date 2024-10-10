@@ -19,6 +19,9 @@ class ViewModel: ObservableObject {
     @Published var notes = notesArray
     var copyNotes = notesArray
     
+    @Published var sports = sportsArray
+    var copySports = sportsArray
+    
     @Published var findText = "" {
         didSet {
             filterNotesByFindText()
@@ -33,6 +36,10 @@ class ViewModel: ObservableObject {
         else {
             self.notes = copyNotes
         }
+    }
+    
+    func deleteNote(index: Int) {
+        self.notes.remove(at: index)
     }
     
     func addToNotes(text: String) {

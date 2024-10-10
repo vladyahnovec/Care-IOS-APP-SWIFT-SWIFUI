@@ -51,8 +51,7 @@ struct NotesView : View {
                             VStack {
                                 HStack {
                                     Button(action: {
-                                        let index = vm.notes.firstIndex(where: {$0.id == note.id})
-                                        vm.notes[index!].done.toggle()
+                                        vm.notes[vm.notes.firstIndex(where: {$0.id == note.id})!].done.toggle()
                                     }) {
                                         ZStack {
                                             Circle()
@@ -70,9 +69,18 @@ struct NotesView : View {
                                 }
                                 HStack {
                                     Spacer()
-                                    Text(note.createdDate.formatted())
-                                        .offset(y: 20)
-                                        .font(.custom("Poppins-Medium", size: 12))
+                                    HStack {
+                                        Text(note.createdDate.formatted())
+                                            .font(.custom("Poppins-Medium", size: 13))
+                                        Button(action: {
+                                            vm.deleteNote(index: vm.notes.firstIndex(where: {$0.id == note.id})!)
+                                        }) {
+                                            Image(systemName: "trash")
+                                                .font(.system(size: 20))
+                                                .foregroundColor(Color.red)
+                                        }
+                                    }
+                                    .offset(y: 10)
                                 }
                             }
                             .padding(20)
