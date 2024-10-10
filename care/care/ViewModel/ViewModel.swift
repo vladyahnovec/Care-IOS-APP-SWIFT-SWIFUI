@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     
     @Published var voice = "Женский"
     
-    @Published var toView = ""
+    @Published var toView = "notesView"
     
     @Published var notes = notesArray
     var copyNotes = notesArray
@@ -33,6 +33,10 @@ class ViewModel: ObservableObject {
         else {
             self.notes = copyNotes
         }
+    }
+    
+    func addToNotes(text: String) {
+        notes.append(Notes(text: text, done: false, createdDate: Date()))
     }
 
 }
