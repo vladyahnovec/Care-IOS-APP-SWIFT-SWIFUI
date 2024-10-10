@@ -21,6 +21,9 @@ struct ContentView: View {
             else if vm.toView == "pillsView" {
                 PillsView(vm: vm)
             }
+            else if vm.toView == "createNoteView" {
+                CreateNoteView(vm: vm)
+            }
             else if vm.toView == "notesView" {
                 NotesView(vm: vm)
             }
