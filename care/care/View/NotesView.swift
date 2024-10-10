@@ -20,7 +20,15 @@ struct NotesView : View {
             }
             .frame(height: 70)
             
-            FindFieldView()
+            HStack {
+                FindFieldView(vm: vm)
+                Spacer()
+                Button(action: {}) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 25))
+                }
+            }
+            .padding(.bottom, 20)
             
             //TODO: Задачи
             VStack(spacing: 20) {

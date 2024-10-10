@@ -9,8 +9,8 @@ import SwiftUI
 
 struct FieldView: View {
     @ObservedObject var vm: ViewModel
-    @State var textField = "" // переменная для отображения текста (placeholder)
-    @Binding var textVM: String // переменная для изменения полей viewModel
+    @State var textField = ""
+    @Binding var textVM: String
     var body: some View {
         // TODO: Шаблон поля ввода ФИО
         ZStack {

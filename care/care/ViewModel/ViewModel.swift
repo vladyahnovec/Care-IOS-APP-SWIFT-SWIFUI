@@ -17,5 +17,22 @@ class ViewModel: ObservableObject {
     @Published var toView = ""
     
     @Published var notes = notesArray
+    var copyNotes = notesArray
+    
+    @Published var findText = "" {
+        didSet {
+            filterNotesByFindText()
+        }
+    }
+    
+    
+    private func filterNotesByFindText() {
+        if findText != "" {
+            self.notes = self.notes.filter {$0.text.lowercased().contains(findText.lowercased())}
+        }
+        else {
+            self.notes = copyNotes
+        }
+    }
 
 }

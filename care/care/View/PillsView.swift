@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PillsView: View {
+    @ObservedObject var vm: ViewModel
     var body: some View {
         VStack {
             
@@ -19,7 +20,7 @@ struct PillsView: View {
             }
             .frame(height: 70)
             
-            FindFieldView()
+            FindFieldView(vm: vm)
             
             
             Spacer()
@@ -29,5 +30,5 @@ struct PillsView: View {
 }
 
 #Preview {
-    PillsView()
+    PillsView(vm: ViewModel())
 }
