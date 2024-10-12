@@ -37,11 +37,12 @@ struct SportView : View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(i.like ? Color.purpleColor.opacity(0.4) : Color.purpleColor)
-                            .frame(width: UIScreen.main.bounds.width - 35 , height: 165)
+                            .frame(width: UIScreen.main.bounds.width - 35 , height: 185)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(i.like ? Color.purpleColor.opacity(0.4) : Color.white)
-                            .frame(width: UIScreen.main.bounds.width - 40 , height: 160)
+                            .frame(width: UIScreen.main.bounds.width - 40 , height: 180)
                         VStack {
+                            Spacer()
                             Text(i.name)
                                 .font(.custom("Poppins-Medium", size: 17))
                                 .multilineTextAlignment(.center)
@@ -51,6 +52,27 @@ struct SportView : View {
                                 .padding(.top, 5)
                                 .padding(.horizontal, 20)
                                 .multilineTextAlignment(.center)
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    vm.sports[vm.sports.firstIndex(where: {$0.id == i.id})!].like.toggle()
+                                }) {
+                                    if i.like {
+                                        Image(systemName: "heart.fill")
+                                            .font(.system(size: 25))
+                                            .padding(.trailing, 20)
+                                            .foregroundColor(Color.purpleColor)
+                                    }
+                                    else {
+                                        Image(systemName: "heart")
+                                            .font(.system(size: 25))
+                                            .padding(.trailing, 20)
+                                            .foregroundColor(Color.purpleColor)
+                                    }
+                                }
+                            }
+                            Spacer()
                         }
                     }
                     .padding(.top, 15)
