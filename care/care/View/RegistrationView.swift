@@ -18,15 +18,11 @@ struct RegistrationView: View {
                 .padding(.top, 80)
                 .foregroundStyle(.black)
             VStack(spacing: 40) {
-                //TODO: Поля ввода ФИО
                 FieldView(vm: vm, textField: "Фамилия", textVM: $vm.surname)
                 FieldView(vm: vm, textField: "Имя", textVM: $vm.name)
                 FieldView(vm: vm, textField: "Отчество", textVM: $vm.patronymic)
-                //TODO: Выбор даты рождения
                 PickDateView()
-                //TODO: Выбор голоса ассистента
                 PickVoiceView(vm: vm)
-                //TODO: Кнопка регистрации
                 RegistrationButtonView(vm: vm)
                 Spacer()
             }

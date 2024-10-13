@@ -12,9 +12,7 @@ struct HomeView : View {
     var body: some View {
         VStack {
             HeaderView()
-            //TODO: Навигационная панель
             NavigationPanel(vm: vm)
-            //TODO: Панель новостей и панель погоды
             ZStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

@@ -47,7 +47,7 @@ struct SportView : View {
                                 .font(.custom("Poppins-Medium", size: 17))
                                 .multilineTextAlignment(.center)
                             Text(i.description)
-                                .font(.custom("Poppins-Thin", size: 16))
+                                .font(.custom("Poppins-Thin", size: 17))
                                 .lineLimit(3)
                                 .padding(.top, 5)
                                 .padding(.horizontal, 20)
